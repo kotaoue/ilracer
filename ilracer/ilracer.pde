@@ -1,6 +1,7 @@
 Racer _hero_racer;
 Racer[] _rival_racers;
 float _innerDiameter, _outerDiameter;
+boolean savePng = true;
 
 void setup() {
   colorMode(RGB);
@@ -57,6 +58,14 @@ void draw() {
         }
       }
     }
+  }
+
+  if (_hero_racer.currentAngle() < _hero_racer.absSpeed()) {
+    savePng = false;
+  }
+
+  if (savePng) {
+    saveFrame("frames/####.png");
   }
 }
 
@@ -135,5 +144,9 @@ class Racer {
       a += 360;
     }
     return a;
+  }
+
+  float absSpeed() {
+    return abs(speed);
   }
 }
