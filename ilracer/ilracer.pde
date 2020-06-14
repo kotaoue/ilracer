@@ -62,6 +62,7 @@ void draw() {
 
   if (_hero_racer.currentAngle() < _hero_racer.absSpeed()) {
     savePng = false;
+    saveFrame("frames/result.png");
   }
 
   if (savePng) {
